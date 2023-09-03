@@ -1,0 +1,30 @@
+{
+	"manifest_version": 3,
+	"name": "test",
+	"description": "hogehoge",
+	"version": "1.0.0",
+	"action": {
+		"default_popup": "index.html"
+	},
+	"permissions": [
+		"storage"
+	],
+	"host_permissions": [
+		"<all_urls>"
+	],
+	"content_scripts": [
+		{
+			"matches": [
+				"https://twitter.com/*"
+			],
+			"js": [
+				"src/content.ts"
+			],
+			"run_at": "document_start"
+		}
+	],
+	"background": {
+		"service_worker": "src/background.ts",
+		"type": "module"
+	}
+}
